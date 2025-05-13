@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'theme/app_theme.dart';
+import 'theme/app_colors.dart';
+import 'widgets/motivation_quote_card.dart';
+import 'widgets/breathing_guide_widget.dart';
 
 void main() {
   runApp(const YogaMeditationApp());
@@ -13,22 +17,8 @@ class YogaMeditationApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Yoga & Meditation',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFB2A4FF),
-          brightness: Brightness.light,
-        ),
-        textTheme: GoogleFonts.latoTextTheme(),
-        useMaterial3: true,
-      ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFB2A4FF),
-          brightness: Brightness.dark,
-        ),
-        textTheme: GoogleFonts.latoTextTheme(ThemeData.dark().textTheme),
-        useMaterial3: true,
-      ),
+      theme: buildLightTheme(),
+      darkTheme: buildDarkTheme(),
       themeMode: ThemeMode.system,
       home: const SplashScreen(),
     );
@@ -233,13 +223,27 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              greeting,
-              style: GoogleFonts.nunito(
-                fontSize: 28,
-                fontWeight: FontWeight.w700,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  greeting,
+                  style: GoogleFonts.nunito(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w700,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+                CircleAvatar(
+                  radius: 24,
+                  backgroundColor: AppColors.lavender.withOpacity(0.5),
+                  child: Icon(
+                    Icons.person_outline_rounded,
+                    color: AppColors.skyBlue,
+                    size: 28,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 8),
             Text(
@@ -249,7 +253,12 @@ class HomeScreen extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
               ),
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 24),
+            MotivationQuoteCard(
+              quote: 'Peace comes from within. Do not seek it without.',
+              author: 'Buddha',
+            ),
+            const SizedBox(height: 24),
             SizedBox(
               height: 220,
               child: PageView(
@@ -260,6 +269,8 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(height: 24),
+            Center(child: BreathingGuideWidget()),
           ],
         ),
       ),
