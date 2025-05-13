@@ -14,7 +14,11 @@ class HomeScreen extends StatelessWidget {
       child: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [AppColors.softPurple, AppColors.skyBlue, AppColors.mint],
+            colors: [
+              Color(0xFFFFE5B4), // Light Peach
+              Color(0xFF8EC5FC), // Misty Blue
+              Color(0xFFE0C3FC), // Soft Purple
+            ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -32,15 +36,17 @@ class HomeScreen extends StatelessWidget {
                     style: GoogleFonts.nunito(
                       fontSize: 28,
                       fontWeight: FontWeight.w700,
-                      color: AppColors.sageGreen,
+                      color: Color(
+                        0xFF22223B,
+                      ), // Very dark blue for max contrast
                     ),
                   ),
                   CircleAvatar(
                     radius: 24,
-                    backgroundColor: AppColors.softPeach.withOpacity(0.7),
+                    backgroundColor: Colors.white,
                     child: Icon(
                       Icons.person_outline_rounded,
-                      color: AppColors.softPurple,
+                      color: Color(0xFF5A189A), // Deep purple
                       size: 28,
                     ),
                   ),
@@ -49,7 +55,10 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 'Find your calm and balance today.',
-                style: GoogleFonts.lato(fontSize: 18, color: AppColors.skyBlue),
+                style: GoogleFonts.lato(
+                  fontSize: 18,
+                  color: Color(0xFF343A40), // Dark gray for body text
+                ),
               ),
               const SizedBox(height: 24),
               MotivationQuoteCard(

@@ -21,9 +21,9 @@ class SessionDetailsScreen extends StatelessWidget {
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  AppColors.softPurple, // Soft Purple
-                  AppColors.sageGreen, // Sage Green
-                  AppColors.skyBlue, // Sky Blue
+                  Color(0xFF8EC5FC), // Misty Blue
+                  Color(0xFFE0C3FC), // Soft Purple
+                  Color(0xFFFFE5B4), // Light Peach
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -53,7 +53,7 @@ class SessionDetailsScreen extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.95),
+                      color: Colors.white,
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
@@ -66,7 +66,7 @@ class SessionDetailsScreen extends StatelessWidget {
                     child: Icon(
                       Icons.self_improvement_outlined,
                       size: 56,
-                      color: AppColors.softPurple,
+                      color: Color(0xFF5A189A), // Deep purple for icon
                     ),
                   ),
                 ),
@@ -76,7 +76,7 @@ class SessionDetailsScreen extends StatelessWidget {
                   style: GoogleFonts.nunito(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.sageGreen,
+                    color: Color(0xFF22223B), // Very dark blue for max contrast
                     letterSpacing: 1.1,
                   ),
                 ),
@@ -85,7 +85,7 @@ class SessionDetailsScreen extends StatelessWidget {
                   'A calming meditation session to help you focus on your breath and relax your mind. Perfect for beginners and experienced practitioners alike.',
                   style: GoogleFonts.lato(
                     fontSize: 18,
-                    color: AppColors.skyBlue,
+                    color: Color(0xFF343A40), // Dark gray for body text
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -93,7 +93,9 @@ class SessionDetailsScreen extends StatelessWidget {
                 Center(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.softPurple,
+                      backgroundColor: Color(
+                        0xFF5A189A,
+                      ), // Deep purple for button
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 48,
