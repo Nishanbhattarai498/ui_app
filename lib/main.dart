@@ -4,6 +4,7 @@ import 'theme/app_theme.dart';
 import 'theme/app_colors.dart';
 import 'widgets/motivation_quote_card.dart';
 import 'widgets/breathing_guide_widget.dart';
+import 'screens/home_screen.dart';
 
 void main() {
   runApp(const YogaMeditationApp());
@@ -11,7 +12,6 @@ void main() {
 
 class YogaMeditationApp extends StatelessWidget {
   const YogaMeditationApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
