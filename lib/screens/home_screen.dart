@@ -11,60 +11,66 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final greeting = _getGreeting();
     return SafeArea(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  greeting,
-                  style: GoogleFonts.nunito(
-                    fontSize: 28,
-                    fontWeight: FontWeight.w700,
-                    color: Theme.of(context).colorScheme.primary,
+      child: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [AppColors.softPurple, AppColors.skyBlue, AppColors.mint],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    greeting,
+                    style: GoogleFonts.nunito(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.sageGreen,
+                    ),
                   ),
-                ),
-                CircleAvatar(
-                  radius: 24,
-                  backgroundColor: AppColors.lavender.withOpacity(0.5),
-                  child: Icon(
-                    Icons.person_outline_rounded,
-                    color: AppColors.skyBlue,
-                    size: 28,
+                  CircleAvatar(
+                    radius: 24,
+                    backgroundColor: AppColors.softPeach.withOpacity(0.7),
+                    child: Icon(
+                      Icons.person_outline_rounded,
+                      color: AppColors.softPurple,
+                      size: 28,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Find your calm and balance today.',
-              style: GoogleFonts.lato(
-                fontSize: 18,
-                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
-              ),
-            ),
-            const SizedBox(height: 24),
-            MotivationQuoteCard(
-              quote: 'Peace comes from within. Do not seek it without.',
-              author: 'Buddha',
-            ),
-            const SizedBox(height: 24),
-            SizedBox(
-              height: 220,
-              child: PageView(
-                controller: PageController(viewportFraction: 0.92),
-                children: const [
-                  _FeaturedMeditationCard(),
-                  _DailyYogaChallengeCard(),
                 ],
               ),
-            ),
-            const SizedBox(height: 24),
-            Center(child: BreathingGuideWidget()),
-          ],
+              const SizedBox(height: 8),
+              Text(
+                'Find your calm and balance today.',
+                style: GoogleFonts.lato(fontSize: 18, color: AppColors.skyBlue),
+              ),
+              const SizedBox(height: 24),
+              MotivationQuoteCard(
+                quote: 'Peace comes from within. Do not seek it without.',
+                author: 'Buddha',
+              ),
+              const SizedBox(height: 24),
+              SizedBox(
+                height: 220,
+                child: PageView(
+                  controller: PageController(viewportFraction: 0.92),
+                  children: const [
+                    _FeaturedMeditationCard(),
+                    _DailyYogaChallengeCard(),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 24),
+              Center(child: BreathingGuideWidget()),
+            ],
+          ),
         ),
       ),
     );
