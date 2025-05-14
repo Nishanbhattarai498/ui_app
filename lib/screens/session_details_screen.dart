@@ -12,22 +12,14 @@ class SessionDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: AppColors.sageGreen),
+        iconTheme: IconThemeData(color: AppColors.textLight),
       ),
       body: Stack(
         children: [
           Container(
             height: 320,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xFF8EC5FC), // Misty Blue
-                  Color(0xFFE0C3FC), // Soft Purple
-                  Color(0xFFFFE5B4), // Light Peach
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
+            decoration: BoxDecoration(
+              gradient: AppGradients.mainGradient,
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(40)),
               boxShadow: [
                 BoxShadow(

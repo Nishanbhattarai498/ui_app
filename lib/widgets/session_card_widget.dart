@@ -21,15 +21,14 @@ class SessionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
-      child: Container(
+      onTap: onTap,      child: Container(
         margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.9),
+          color: AppColors.cardBg,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withOpacity(0.15),
               blurRadius: 10,
               offset: const Offset(0, 4),
             ),
@@ -54,12 +53,11 @@ class SessionCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
+                  Text(                    title,
                     style: GoogleFonts.nunito(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF22223B),
+                      color: AppColors.textPrimary,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -71,14 +69,14 @@ class SessionCard extends StatelessWidget {
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: AppColors.softPurple.withOpacity(0.1),
+                          color: AppColors.primary.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Text(
                           category,
                           style: GoogleFonts.nunito(
                             fontSize: 12,
-                            color: AppColors.softPurple,
+                            color: AppColors.primary,
                           ),
                         ),
                       ),
@@ -87,7 +85,7 @@ class SessionCard extends StatelessWidget {
                         duration,
                         style: GoogleFonts.nunito(
                           fontSize: 12,
-                          color: Color(0xFF343A40),
+                          color: AppColors.textSecondary,
                         ),
                       ),
                     ],

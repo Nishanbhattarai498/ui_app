@@ -60,7 +60,7 @@ class _BreathingGuideWidgetState extends State<BreathingGuideWidget>
                 height: 100,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  gradient: AppGradients.yogaCard,
+                  gradient: AppGradients.accentGradient,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black12,

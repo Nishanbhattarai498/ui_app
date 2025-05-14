@@ -18,7 +18,7 @@ class MotivationQuoteCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         decoration: BoxDecoration(
-          gradient: AppGradients.featuredCard,
+          gradient: AppGradients.cardGradient,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(

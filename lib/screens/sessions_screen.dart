@@ -40,13 +40,7 @@ class _SessionsScreenState extends State<SessionsScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [AppColors.skyBlue, AppColors.mint, AppColors.softPeach],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        decoration: BoxDecoration(gradient: AppGradients.mainGradient),
         child: Column(
           children: [
             Padding(
@@ -59,7 +53,7 @@ class _SessionsScreenState extends State<SessionsScreen> {
                     style: GoogleFonts.nunito(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.softPurple,
+                      color: AppColors.textLight,
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -100,7 +94,7 @@ class _SessionsScreenState extends State<SessionsScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             decoration: BoxDecoration(
                               color: isSelected
-                                  ? AppColors.softPurple
+                                  ? AppColors.primary
                                   : Colors.white.withOpacity(0.9),
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -110,7 +104,7 @@ class _SessionsScreenState extends State<SessionsScreen> {
                                 style: GoogleFonts.nunito(
                                   color: isSelected
                                       ? Colors.white
-                                      : AppColors.softPurple,
+                                      : AppColors.primary,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),

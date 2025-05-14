@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'app_colors.dart';
 
 ThemeData buildLightTheme() {
   return ThemeData(
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: const Color(0xFFB2A4FF),
+    colorScheme: ColorScheme(
       brightness: Brightness.light,
+      primary: AppColors.primary,
+      secondary: AppColors.secondary,
+      surface: AppColors.cardBg,
+      background: AppColors.background,
+      error: AppColors.error,
+      onPrimary: AppColors.textLight,
+      onSecondary: AppColors.textLight,
+      onSurface: AppColors.textPrimary,
+      onBackground: AppColors.textPrimary,
+      onError: AppColors.textLight,
     ),
     textTheme: GoogleFonts.nunitoTextTheme().copyWith(
       headlineLarge: GoogleFonts.nunito(
@@ -27,9 +37,18 @@ ThemeData buildLightTheme() {
 
 ThemeData buildDarkTheme() {
   return ThemeData(
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: const Color(0xFFB2A4FF),
+    colorScheme: ColorScheme(
       brightness: Brightness.dark,
+      primary: AppColors.primary,
+      secondary: AppColors.secondary,
+      surface: Color(0xFF1A1F36),
+      background: Color(0xFF0F1424),
+      error: AppColors.error,
+      onPrimary: AppColors.textLight,
+      onSecondary: AppColors.textLight,
+      onSurface: AppColors.textLight,
+      onBackground: AppColors.textLight,
+      onError: AppColors.textLight,
     ),
     textTheme: GoogleFonts.nunitoTextTheme(ThemeData.dark().textTheme).copyWith(
       headlineLarge: GoogleFonts.nunito(

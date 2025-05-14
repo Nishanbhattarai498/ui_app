@@ -1,39 +1,49 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const lavender = Color(0xFFE6E6FA);
-  static const skyBlue = Color(0xFFB2D8FF);
-  static const mint = Color(0xFFB9F3E4);
-  static const lightPeach = Color(0xFFFFE5B4);
-  static const softPurple = Color(0xFFE0C3FC);
-  static const mistyBlue = Color(0xFF8EC5FC);
-  static const sageGreen = Color(0xFFA1FFCE);
-  static const softPeach = Color(0xFFF9F9D2);
-  static const darkPurple = Color(0xFF22223B);
-  static const darkGrey = Color(0xFF343A40);
+  // Primary Colors
+  static const primary = Color(0xFF4776E6); // Electric Blue
+  static const secondary = Color(0xFF8E54E9); // Bright Purple
+  static const accent = Color(0xFF00E5FF); // Cyan
+
+  // Background Colors
+  static const background = Color(0xFFFAFBFF); // Light Blue-tinted White
+  static const cardBg = Colors.white;
+  static const surfaceLight = Color(0xFFEEF2FF); // Light Blue Surface
+
+  // Text Colors
+  static const textPrimary = Color(0xFF2C1810); // Rich Dark
+  static const textSecondary = Color(0xFF4F566B); // Medium Gray
+  static const textLight = Color(0xFFFFFFFF); // Pure White
+
+  // Accent Colors
+  static const success = Color(0xFF00C853); // Green
+  static const warning = Color(0xFFFFAB00); // Amber
+  static const error = Color(0xFFFF5252); // Red
+  static const info = Color(0xFF00B8D4); // Light Blue
+
+  // Gradient Colors
+  static const gradientStart = Color(0xFF4776E6); // Electric Blue
+  static const gradientMiddle = Color(0xFF8E54E9); // Bright Purple
+  static const gradientEnd = Color(0xFF00E5FF); // Cyan
 }
 
 class AppGradients {
-  static const mainBackground = LinearGradient(
-    colors: [
-      AppColors.lavender,
-      AppColors.skyBlue,
-      AppColors.mint,
-      AppColors.lightPeach,
-    ],
+  static const mainGradient = LinearGradient(
+    colors: [AppColors.gradientStart, AppColors.gradientEnd],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
 
-  static const featuredCard = LinearGradient(
-    colors: [AppColors.softPurple, AppColors.mistyBlue],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
+  static const cardGradient = LinearGradient(
+    colors: [AppColors.gradientStart, AppColors.gradientMiddle],
+    begin: Alignment.bottomCenter,
+    end: Alignment.topCenter,
   );
 
-  static const yogaCard = LinearGradient(
-    colors: [AppColors.softPeach, AppColors.sageGreen],
-    begin: Alignment.topRight,
-    end: Alignment.bottomLeft,
+  static const accentGradient = LinearGradient(
+    colors: [AppColors.gradientMiddle, AppColors.gradientEnd],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
   );
 }

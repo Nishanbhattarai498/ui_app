@@ -12,17 +12,7 @@ class HomeScreen extends StatelessWidget {
     final greeting = _getGreeting();
     return SafeArea(
       child: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFFFFE5B4), // Light Peach
-              Color(0xFF8EC5FC), // Misty Blue
-              Color(0xFFE0C3FC), // Soft Purple
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        decoration: BoxDecoration(gradient: AppGradients.mainGradient),
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
           child: Column(
@@ -36,9 +26,7 @@ class HomeScreen extends StatelessWidget {
                     style: GoogleFonts.nunito(
                       fontSize: 28,
                       fontWeight: FontWeight.w700,
-                      color: Color(
-                        0xFF22223B,
-                      ), // Very dark blue for max contrast
+                      color: AppColors.textPrimary,
                     ),
                   ),
                   CircleAvatar(
@@ -46,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                     backgroundColor: Colors.white,
                     child: Icon(
                       Icons.person_outline_rounded,
-                      color: Color(0xFF5A189A), // Deep purple
+                      color: AppColors.primary,
                       size: 28,
                     ),
                   ),
