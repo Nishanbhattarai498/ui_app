@@ -21,7 +21,8 @@ class SessionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,      child: Container(
+      onTap: onTap,
+      child: Container(
         margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: AppColors.cardBg,
@@ -53,7 +54,8 @@ class SessionCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(                    title,
+                  Text(
+                    title,
                     style: GoogleFonts.nunito(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

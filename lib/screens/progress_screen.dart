@@ -26,7 +26,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 style: GoogleFonts.nunito(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: AppColors.textLight,
                 ),
               ),
               const SizedBox(height: 8),
@@ -34,7 +34,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 'Track your meditation and yoga journey',
                 style: GoogleFonts.lato(
                   fontSize: 18,
-                  color: Colors.white.withOpacity(0.9),
+                  color: AppColors.textLight.withOpacity(0.9),
                 ),
               ),
               const SizedBox(height: 32),
@@ -54,11 +54,11 @@ class _ProgressScreenState extends State<ProgressScreen> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.cardBg,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.15),
+            color: Colors.black.withOpacity(0.25),
             blurRadius: 20,
             offset: const Offset(0, 8),
           ),
@@ -72,7 +72,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
             style: GoogleFonts.nunito(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF2C1810), // Dark Brown
+              color: AppColors.textLight,
             ),
           ),
           const SizedBox(height: 24),
@@ -93,7 +93,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                         return Text(
                           days[value.toInt()],
                           style: GoogleFonts.lato(
-                            color: const Color(0xFF2C1810),
+                            color: AppColors.textLight,
                             fontSize: 14,
                           ),
                         );
@@ -165,11 +165,11 @@ class _ProgressScreenState extends State<ProgressScreen> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.cardBg,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.15),
+            color: Colors.black.withOpacity(0.25),
             blurRadius: 20,
             offset: const Offset(0, 8),
           ),
@@ -183,7 +183,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
             style: GoogleFonts.nunito(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF2C1810),
+              color: AppColors.textLight,
             ),
           ),
           const SizedBox(height: 16),
@@ -211,18 +211,20 @@ class _ProgressScreenState extends State<ProgressScreen> {
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: isSelected ? const Color(0xFF4776E6) : Colors.transparent,
+            color: isSelected ? AppColors.accent : Colors.transparent,
             shape: BoxShape.circle,
             border: Border.all(
               color: isSelected
-                  ? const Color(0xFF4776E6)
-                  : const Color(0xFF2C1810),
+                  ? AppColors.accent
+                  : AppColors.textLight.withOpacity(0.7),
               width: 2,
             ),
           ),
           child: Icon(
             icon,
-            color: isSelected ? Colors.white : const Color(0xFF2C1810),
+            color: isSelected
+                ? AppColors.textLight
+                : AppColors.textLight.withOpacity(0.7),
             size: 28,
           ),
         ),
@@ -231,7 +233,9 @@ class _ProgressScreenState extends State<ProgressScreen> {
           label,
           style: GoogleFonts.lato(
             fontSize: 14,
-            color: const Color(0xFF2C1810),
+            color: isSelected
+                ? AppColors.textLight
+                : AppColors.textLight.withOpacity(0.7),
             fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
           ),
         ),
@@ -245,8 +249,8 @@ class _ProgressScreenState extends State<ProgressScreen> {
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           colors: [
-            Color(0xFF4776E6), // Electric Blue
-            Color(0xFF8E54E9), // Bright Purple
+            Color(0xFF2C3E50), // Dark Blue
+            Color(0xFF6C5CE7), // Deep Purple
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,

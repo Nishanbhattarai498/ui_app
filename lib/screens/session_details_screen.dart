@@ -20,8 +20,10 @@ class SessionDetailsScreen extends StatelessWidget {
             height: 320,
             decoration: BoxDecoration(
               gradient: AppGradients.mainGradient,
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(40)),
-              boxShadow: [
+              borderRadius: const BorderRadius.vertical(
+                bottom: Radius.circular(40),
+              ),
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black26,
                   blurRadius: 32,
@@ -45,69 +47,111 @@ class SessionDetailsScreen extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppColors.cardBg,
                       shape: BoxShape.circle,
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 20,
+                          color: Colors.black26,
+                          blurRadius: 16,
                           offset: Offset(0, 8),
                         ),
                       ],
                     ),
                     child: Icon(
-                      Icons.self_improvement_outlined,
-                      size: 56,
-                      color: Color(0xFF5A189A), // Deep purple for icon
+                      Icons.self_improvement,
+                      size: 64,
+                      color: AppColors.accent,
                     ),
                   ),
                 ),
-                const SizedBox(height: 32),
+                const SizedBox(height: 24),
                 Text(
-                  'Mindful Breathing',
+                  'Morning Yoga Flow',
                   style: GoogleFonts.nunito(
-                    fontSize: 30,
+                    fontSize: 32,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF22223B), // Very dark blue for max contrast
-                    letterSpacing: 1.1,
+                    color: AppColors.textLight,
                   ),
+                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 8),
                 Text(
-                  'A calming meditation session to help you focus on your breath and relax your mind. Perfect for beginners and experienced practitioners alike.',
+                  'Start your day with energy and focus',
                   style: GoogleFonts.lato(
                     fontSize: 18,
-                    color: Color(0xFF343A40), // Dark gray for body text
-                    fontWeight: FontWeight.w600,
+                    color: AppColors.textLight.withOpacity(0.9),
+                  ),
+                ),
+                const SizedBox(height: 24),
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: AppColors.cardBg,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 16,
+                        offset: Offset(0, 8),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.timer_outlined,
+                            color: AppColors.accent,
+                            size: 24,
+                          ),
+                          const SizedBox(width: 12),
+                          Text(
+                            '30 minutes',
+                            style: GoogleFonts.lato(
+                              fontSize: 16,
+                              color: AppColors.textLight,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.fitness_center_outlined,
+                            color: AppColors.accent,
+                            size: 24,
+                          ),
+                          const SizedBox(width: 12),
+                          Text(
+                            'Beginner friendly',
+                            style: GoogleFonts.lato(
+                              fontSize: 16,
+                              color: AppColors.textLight,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 32),
-                Center(
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(
-                        0xFF5A189A,
-                      ), // Deep purple for button
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 48,
-                        vertical: 16,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(32),
-                      ),
-                      elevation: 10,
-                      shadowColor: Colors.black26,
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.accent,
+                    minimumSize: const Size(double.infinity, 56),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
                     ),
-                    onPressed: () {},
-                    child: Text(
-                      'Start',
-                      style: GoogleFonts.nunito(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        letterSpacing: 1.1,
-                      ),
+                  ),
+                  child: Text(
+                    'Start Session',
+                    style: GoogleFonts.nunito(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.textLight,
                     ),
                   ),
                 ),

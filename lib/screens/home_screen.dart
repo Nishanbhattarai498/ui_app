@@ -31,10 +31,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                   CircleAvatar(
                     radius: 24,
-                    backgroundColor: Colors.white,
+                    backgroundColor: AppColors.cardBg,
                     child: Icon(
                       Icons.person_outline_rounded,
-                      color: AppColors.primary,
+                      color: AppColors.accent,
                       size: 28,
                     ),
                   ),
@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                 'Find your calm and balance today.',
                 style: GoogleFonts.lato(
                   fontSize: 18,
-                  color: Color(0xFF343A40), // Dark gray for body text
+                  color: AppColors.textLight.withOpacity(0.9),
                 ),
               ),
               const SizedBox(height: 24),

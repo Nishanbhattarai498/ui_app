@@ -60,16 +60,21 @@ class _SessionsScreenState extends State<SessionsScreen> {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.9),
+                      color: AppColors.cardBg,
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: TextField(
                       controller: _searchController,
                       onChanged: filterSessions,
-                      decoration: const InputDecoration(
+                      style: TextStyle(color: AppColors.textLight),
+                      decoration: InputDecoration(
                         hintText: 'Search sessions...',
+                        hintStyle: TextStyle(color: AppColors.textSecondary),
                         border: InputBorder.none,
-                        icon: Icon(Icons.search),
+                        icon: Icon(
+                          Icons.search,
+                          color: AppColors.textSecondary,
+                        ),
                       ),
                     ),
                   ),
@@ -94,8 +99,8 @@ class _SessionsScreenState extends State<SessionsScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             decoration: BoxDecoration(
                               color: isSelected
-                                  ? AppColors.primary
-                                  : Colors.white.withOpacity(0.9),
+                                  ? AppColors.accent
+                                  : AppColors.cardBg,
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: Center(
@@ -103,8 +108,8 @@ class _SessionsScreenState extends State<SessionsScreen> {
                                 category,
                                 style: GoogleFonts.nunito(
                                   color: isSelected
-                                      ? Colors.white
-                                      : AppColors.primary,
+                                      ? AppColors.textLight
+                                      : AppColors.textSecondary,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),

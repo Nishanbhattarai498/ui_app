@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'theme/app_theme.dart';
+import 'theme/app_colors.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -153,15 +154,7 @@ class _MainScaffoldState extends State<MainScaffold> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [
-              Color(0xFFE6E6FA), // Lavender
-              Color(0xFFB2D8FF), // Sky Blue
-              Color(0xFFB9F3E4), // Mint
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+          color: AppColors.background,
           boxShadow: [
             BoxShadow(
               color: Colors.black12,
@@ -176,13 +169,11 @@ class _MainScaffoldState extends State<MainScaffold> {
           child: BottomNavigationBar(
             currentIndex: _selectedIndex,
             onTap: _onItemTapped,
-            backgroundColor: Colors.transparent,
+            backgroundColor: AppColors.background,
             elevation: 0,
             type: BottomNavigationBarType.fixed,
-            selectedItemColor: Theme.of(context).colorScheme.primary,
-            unselectedItemColor: Theme.of(
-              context,
-            ).colorScheme.onSurface.withOpacity(0.6),
+            selectedItemColor: AppColors.accent,
+            unselectedItemColor: AppColors.textSecondary,
             showUnselectedLabels: true,
             items: const [
               BottomNavigationBarItem(
