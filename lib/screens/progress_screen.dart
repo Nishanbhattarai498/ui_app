@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../theme/app_colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 class ProgressScreen extends StatefulWidget {
@@ -100,15 +99,11 @@ class _ProgressScreenState extends State<ProgressScreen> {
                     sideTitles: SideTitles(
                       showTitles: true,
                       getTitlesWidget: (value, meta) {
-                        const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
-                        return SideTitleWidget(
-                          axisSide: meta.axisSide,
-                          child: Text(
-                            days[value.toInt()],
-                            style: GoogleFonts.lato(
-                              color: Color(0xFF343A40),
-                              fontSize: 14,
-                            ),
+                        const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];                        return Text(
+                          days[value.toInt()],
+                          style: GoogleFonts.lato(
+                            color: Color(0xFF343A40),
+                            fontSize: 14,
                           ),
                         );
                       },
@@ -117,15 +112,11 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   leftTitles: AxisTitles(
                     sideTitles: SideTitles(
                       showTitles: true,
-                      getTitlesWidget: (value, meta) {
-                        return SideTitleWidget(
-                          axisSide: meta.axisSide,
-                          child: Text(
-                            '${value.toInt()}m',
-                            style: GoogleFonts.lato(
-                              color: Color(0xFF343A40),
-                              fontSize: 12,
-                            ),
+                      getTitlesWidget: (value, meta) {                        return Text(
+                          '${value.toInt()}m',
+                          style: GoogleFonts.lato(
+                            color: Color(0xFF343A40),
+                            fontSize: 12,
                           ),
                         );
                       },
@@ -301,16 +292,5 @@ class _ProgressScreenState extends State<ProgressScreen> {
           ),
         ],
       ),
-    );
-  }
-            style: GoogleFonts.nunito(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              color: AppColors.sageGreen,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+    );  }
 }

@@ -9,6 +9,8 @@ class AppColors {
   static const mistyBlue = Color(0xFF8EC5FC);
   static const sageGreen = Color(0xFFA1FFCE);
   static const softPeach = Color(0xFFF9F9D2);
+  static const darkPurple = Color(0xFF22223B);
+  static const darkGrey = Color(0xFF343A40);
 }
 
 class AppGradients {

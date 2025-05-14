@@ -59,7 +59,7 @@ class SessionCard extends StatelessWidget {
                     style: GoogleFonts.nunito(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.darkPurple,
+                      color: Color(0xFF22223B),
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -87,7 +87,7 @@ class SessionCard extends StatelessWidget {
                         duration,
                         style: GoogleFonts.nunito(
                           fontSize: 12,
-                          color: AppColors.darkGrey,
+                          color: Color(0xFF343A40),
                         ),
                       ),
                     ],
