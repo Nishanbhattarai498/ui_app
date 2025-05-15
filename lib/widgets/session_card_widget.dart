@@ -60,7 +60,7 @@ class SessionCard extends StatelessWidget {
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: AppColors.textPrimary,
-                    ),
+                    ),   
                   ),
                   const SizedBox(height: 4),
                   Row(
