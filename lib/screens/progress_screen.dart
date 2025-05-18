@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../theme/app_colors.dart';
-import 'dart:math' as math;
 
 class ProgressScreen extends StatefulWidget {
   const ProgressScreen({super.key});
