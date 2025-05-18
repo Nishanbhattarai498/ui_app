@@ -9,7 +9,8 @@ class SessionDetailsScreen extends StatefulWidget {
   State<SessionDetailsScreen> createState() => _SessionDetailsScreenState();
 }
 
-class _SessionDetailsScreenState extends State<SessionDetailsScreen> with SingleTickerProviderStateMixin {
+class _SessionDetailsScreenState extends State<SessionDetailsScreen>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _headerAnimation;
   late final Animation<double> _contentAnimation;
@@ -80,7 +81,9 @@ class _SessionDetailsScreenState extends State<SessionDetailsScreen> with Single
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
-                    _isFavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
+                    _isFavorite
+                        ? Icons.favorite_rounded
+                        : Icons.favorite_border_rounded,
                     color: _isFavorite ? Colors.red : AppColors.textLight,
                     size: 20,
                   ),
@@ -183,7 +186,8 @@ class _SessionDetailsScreenState extends State<SessionDetailsScreen> with Single
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Morning Yoga Flow',                              style: GoogleFonts.nunito(
+                              'Morning Yoga Flow',
+                              style: GoogleFonts.nunito(
                                 fontSize: 32,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.textLight,
@@ -194,7 +198,8 @@ class _SessionDetailsScreenState extends State<SessionDetailsScreen> with Single
                             const SizedBox(height: 16),
                             Text(
                               'Start your day with energy and focus',
-                              style: Theme.of(context).titleLarge?.copyWith(
+                              style: GoogleFonts.lato(
+                                fontSize: 20,
                                 color: AppColors.textLight.withOpacity(0.9),
                               ),
                             ),
@@ -259,9 +264,10 @@ class _SessionDetailsScreenState extends State<SessionDetailsScreen> with Single
                               ),
                               child: Text(
                                 'Start Session',
-                                style: Theme.of(context).titleLarge?.copyWith(
-                                  color: AppColors.textLight,
+                                style: GoogleFonts.nunito(
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold,
+                                  color: AppColors.textLight,
                                 ),
                               ),
                             ),
@@ -292,11 +298,7 @@ class _SessionDetailsScreenState extends State<SessionDetailsScreen> with Single
             color: AppColors.accent.withOpacity(0.1),
             borderRadius: BorderRadius.circular(12),
           ),
-          child: Icon(
-            icon,
-            color: AppColors.accent,
-            size: 24,
-          ),
+          child: Icon(icon, color: AppColors.accent, size: 24),
         ),
         const SizedBox(width: 16),
         Expanded(
@@ -305,14 +307,16 @@ class _SessionDetailsScreenState extends State<SessionDetailsScreen> with Single
             children: [
               Text(
                 title,
-                style: Theme.of(context).bodyMedium?.copyWith(
+                style: GoogleFonts.lato(
+                  fontSize: 14,
                   color: AppColors.textLight.withOpacity(0.7),
                 ),
               ),
               const SizedBox(height: 4),
               Text(
                 value,
-                style: Theme.of(context).titleMedium?.copyWith(
+                style: GoogleFonts.nunito(
+                  fontSize: 16,
                   color: AppColors.textLight,
                   fontWeight: FontWeight.w600,
                 ),

@@ -9,7 +9,8 @@ class ProfileScreen extends StatefulWidget {
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProviderStateMixin {
+class _ProfileScreenState extends State<ProfileScreen>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _scaleAnimation;
   late final Animation<double> _fadeAnimation;
@@ -25,18 +26,12 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
     _scaleAnimation = Tween<double>(
       begin: 0.8,
       end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOutBack,
-    ));
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
 
     _fadeAnimation = Tween<double>(
       begin: 0.0,
       end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOut,
-    ));
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
     _controller.forward();
   }
@@ -78,7 +73,9 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                                     shape: BoxShape.circle,
                                     boxShadow: [
                                       BoxShadow(
-                                        color: AppColors.accent.withOpacity(0.3),
+                                        color: AppColors.accent.withOpacity(
+                                          0.3,
+                                        ),
                                         blurRadius: 20,
                                         offset: const Offset(0, 8),
                                       ),
@@ -94,7 +91,9 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                                       color: AppColors.cardBg,
                                       shape: BoxShape.circle,
                                       border: Border.all(
-                                        color: AppColors.accent.withOpacity(0.3),
+                                        color: AppColors.accent.withOpacity(
+                                          0.3,
+                                        ),
                                         width: 4,
                                       ),
                                     ),
@@ -115,7 +114,9 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                                       shape: BoxShape.circle,
                                       boxShadow: [
                                         BoxShadow(
-                                          color: AppColors.accent.withOpacity(0.3),
+                                          color: AppColors.accent.withOpacity(
+                                            0.3,
+                                          ),
                                           blurRadius: 8,
                                           offset: const Offset(0, 4),
                                         ),
@@ -133,10 +134,11 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                             const SizedBox(height: 24),
                             Text(
                               'Sarah Johnson',
-                              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                color: AppColors.textLight,
-                                height: 1.1,
-                              ),
+                              style: Theme.of(context).textTheme.headlineMedium
+                                  ?.copyWith(
+                                    color: AppColors.textLight,
+                                    height: 1.1,
+                                  ),
                             ),
                             const SizedBox(height: 8),
                             Container(
@@ -150,9 +152,8 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                               ),
                               child: Text(
                                 'Mindfulness Explorer',
-                                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                  color: AppColors.accent,
-                                ),
+                                style: Theme.of(context).textTheme.titleMedium
+                                    ?.copyWith(color: AppColors.accent),
                               ),
                             ),
                           ],

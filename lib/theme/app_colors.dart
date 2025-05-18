@@ -30,9 +30,9 @@ class AppColors {
 class AppGradients {
   static const mainGradient = LinearGradient(
     colors: [
-      Color(0xFF2D3250),  // Rich Navy
-      Color(0xFF424874),  // Deep Indigo
-      Color(0xFF7C4DFF),  // Vibrant Purple
+      Color(0xFF2D3250), // Rich Navy
+      Color(0xFF424874), // Deep Indigo
+      Color(0xFF7C4DFF), // Vibrant Purple
     ],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
@@ -41,9 +41,9 @@ class AppGradients {
 
   static const cardGradient = LinearGradient(
     colors: [
-      Color(0xFF1E2433),  // Dark Slate
-      Color(0xFF2A3142),  // Medium Slate
-      Color(0xFF424874),  // Deep Indigo
+      Color(0xFF1E2433), // Dark Slate
+      Color(0xFF2A3142), // Medium Slate
+      Color(0xFF424874), // Deep Indigo
     ],
     begin: Alignment.bottomCenter,
     end: Alignment.topCenter,
@@ -52,9 +52,9 @@ class AppGradients {
 
   static const accentGradient = LinearGradient(
     colors: [
-      Color(0xFF7C4DFF),  // Vibrant Purple
-      Color(0xFF424874),  // Deep Indigo
-      Color(0xFF00BCD4),  // Bright Cyan
+      Color(0xFF7C4DFF), // Vibrant Purple
+      Color(0xFF424874), // Deep Indigo
+      Color(0xFF00BCD4), // Bright Cyan
     ],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,

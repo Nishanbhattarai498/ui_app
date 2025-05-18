@@ -11,7 +11,8 @@ class ProgressScreen extends StatefulWidget {
   State<ProgressScreen> createState() => _ProgressScreenState();
 }
 
-class _ProgressScreenState extends State<ProgressScreen> with SingleTickerProviderStateMixin {
+class _ProgressScreenState extends State<ProgressScreen>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _fadeAnimation;
   late final Animation<double> _slideAnimation;
@@ -27,18 +28,12 @@ class _ProgressScreenState extends State<ProgressScreen> with SingleTickerProvid
     _fadeAnimation = Tween<double>(
       begin: 0.0,
       end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOut,
-    ));
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
     _slideAnimation = Tween<double>(
       begin: 50.0,
       end: 0.0,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOutCubic,
-    ));
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
 
     _controller.forward();
   }
@@ -91,17 +86,24 @@ class _ProgressScreenState extends State<ProgressScreen> with SingleTickerProvid
                                   children: [
                                     Text(
                                       'Your Progress',
-                                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                        color: AppColors.textLight,
-                                        height: 1.1,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineMedium
+                                          ?.copyWith(
+                                            color: AppColors.textLight,
+                                            height: 1.1,
+                                          ),
                                     ),
                                     const SizedBox(height: 4),
                                     Text(
                                       'Track your meditation and yoga journey',
-                                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                        color: AppColors.textLight.withOpacity(0.9),
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge
+                                          ?.copyWith(
+                                            color: AppColors.textLight
+                                                .withOpacity(0.9),
+                                          ),
                                     ),
                                   ],
                                 ),
@@ -134,7 +136,10 @@ class _ProgressScreenState extends State<ProgressScreen> with SingleTickerProvid
         return Opacity(
           opacity: _fadeAnimation.value,
           child: Transform.translate(
-            offset: Offset(0, _slideAnimation.value * (1 - _fadeAnimation.value)),
+            offset: Offset(
+              0,
+              _slideAnimation.value * (1 - _fadeAnimation.value),
+            ),
             child: Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -186,7 +191,8 @@ class _ProgressScreenState extends State<ProgressScreen> with SingleTickerProvid
                     child: BarChart(
                       BarChartData(
                         alignment: BarChartAlignment.spaceAround,
-                        maxY: 60,                        barTouchData: BarTouchData(
+                        maxY: 60,
+                        barTouchData: BarTouchData(
                           enabled: true,
                           touchTooltipData: BarTouchTooltipData(
                             fitInsideHorizontally: true,
@@ -208,7 +214,15 @@ class _ProgressScreenState extends State<ProgressScreen> with SingleTickerProvid
                             sideTitles: SideTitles(
                               showTitles: true,
                               getTitlesWidget: (value, meta) {
-                                const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+                                const days = [
+                                  'M',
+                                  'T',
+                                  'W',
+                                  'T',
+                                  'F',
+                                  'S',
+                                  'S',
+                                ];
                                 return Text(
                                   days[value.toInt()],
                                   style: GoogleFonts.nunito(
@@ -280,10 +294,7 @@ class _ProgressScreenState extends State<ProgressScreen> with SingleTickerProvid
         BarChartRodData(
           toY: y,
           gradient: LinearGradient(
-            colors: [
-              AppColors.accent.withOpacity(0.7),
-              AppColors.accent,
-            ],
+            colors: [AppColors.accent.withOpacity(0.7), AppColors.accent],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
           ),

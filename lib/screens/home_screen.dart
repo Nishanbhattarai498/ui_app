@@ -11,7 +11,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final List<Animation<double>> _animations;
 
@@ -78,17 +79,19 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                         children: [
                           Text(
                             greeting,
-                            style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                              color: AppColors.textLight,
-                              height: 1.1,
-                            ),
+                            style: Theme.of(context).textTheme.headlineLarge
+                                ?.copyWith(
+                                  color: AppColors.textLight,
+                                  height: 1.1,
+                                ),
                           ),
                           const SizedBox(height: 8),
                           Text(
                             'Find your calm and balance today.',
-                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              color: AppColors.textLight.withOpacity(0.9),
-                            ),
+                            style: Theme.of(context).textTheme.bodyLarge
+                                ?.copyWith(
+                                  color: AppColors.textLight.withOpacity(0.9),
+                                ),
                           ),
                         ],
                       ),
