@@ -2,68 +2,183 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../theme/app_colors.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _scaleAnimation;
+  late final Animation<double> _fadeAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 800),
+    );
+
+    _scaleAnimation = Tween<double>(
+      begin: 0.8,
+      end: 1.0,
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeOutBack,
+    ));
+
+    _fadeAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeOut,
+    ));
+
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(gradient: AppGradients.mainGradient),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  gradient: AppGradients.cardGradient,
-                  shape: BoxShape.circle,
-                ),
-                padding: const EdgeInsets.all(4),
-                child: const CircleAvatar(
-                  radius: 50,
-                  backgroundColor: Colors.white,
-                  child: Icon(
-                    Icons.person_outline_rounded,
-                    size: 50,
-                    color: Color(0xFF4F566B),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                'Sarah Johnson',
-                style: GoogleFonts.nunito(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textLight,
-                ),
-              ),
-              Text(
-                'Mindfulness Explorer',
-                style: GoogleFonts.lato(
-                  fontSize: 16,
-                  color: AppColors.textLight.withOpacity(0.8),
-                ),
-              ),
-              const SizedBox(height: 32),
-              _buildStatCard(
-                icon: Icons.local_fire_department_outlined,
-                value: '7',
-                label: 'Day Streak',
-                gradient: AppGradients.cardGradient,
-              ),
-              const SizedBox(height: 24),
-              _buildStatCard(
-                icon: Icons.timer_outlined,
-                value: '126',
-                label: 'Minutes Meditated',
-                gradient: AppGradients.accentGradient,
-              ),
-              const SizedBox(height: 24),
-              _buildAchievementsList(),
-            ],
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+            child: AnimatedBuilder(
+              animation: _controller,
+              builder: (context, child) {
+                return Column(
+                  children: [
+                    ScaleTransition(
+                      scale: _scaleAnimation,
+                      child: FadeTransition(
+                        opacity: _fadeAnimation,
+                        child: Column(
+                          children: [
+                            Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Container(
+                                  width: 120,
+                                  height: 120,
+                                  decoration: BoxDecoration(
+                                    gradient: AppGradients.accentGradient,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: AppColors.accent.withOpacity(0.3),
+                                        blurRadius: 20,
+                                        offset: const Offset(0, 8),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Hero(
+                                  tag: 'profile_avatar',
+                                  child: Container(
+                                    width: 110,
+                                    height: 110,
+                                    decoration: BoxDecoration(
+                                      color: AppColors.cardBg,
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                        color: AppColors.accent.withOpacity(0.3),
+                                        width: 4,
+                                      ),
+                                    ),
+                                    child: Icon(
+                                      Icons.person_outline_rounded,
+                                      size: 50,
+                                      color: AppColors.accent,
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  bottom: 0,
+                                  right: 0,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.accent,
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: AppColors.accent.withOpacity(0.3),
+                                          blurRadius: 8,
+                                          offset: const Offset(0, 4),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Icon(
+                                      Icons.edit_outlined,
+                                      size: 16,
+                                      color: AppColors.textLight,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 24),
+                            Text(
+                              'Sarah Johnson',
+                              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                                color: AppColors.textLight,
+                                height: 1.1,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 8,
+                              ),
+                              decoration: BoxDecoration(
+                                color: AppColors.accent.withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Text(
+                                'Mindfulness Explorer',
+                                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  color: AppColors.accent,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    _buildStatCard(
+                      icon: Icons.local_fire_department_outlined,
+                      value: '7',
+                      label: 'Day Streak',
+                      gradient: AppGradients.cardGradient,
+                    ),
+                    const SizedBox(height: 24),
+                    _buildStatCard(
+                      icon: Icons.timer_outlined,
+                      value: '126',
+                      label: 'Minutes Meditated',
+                      gradient: AppGradients.accentGradient,
+                    ),
+                    const SizedBox(height: 24),
+                    _buildAchievementsList(),
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),
